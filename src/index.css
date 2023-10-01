@@ -1,0 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.ctn {
+  display: flex;
+  gap: 10px;
+  padding: 50px;
+}
