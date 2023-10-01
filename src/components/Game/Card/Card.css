@@ -1,0 +1,54 @@
+.card {
+  width: 150px;
+  height: 200px;
+  background-color: #ffffff;
+  border: 2px solid #3498db; /* Blue border */
+  border-radius: 8px;
+  position: relative; /* To position the pseudo-elements */
+  overflow: hidden; /* Hide overflowing content */
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 48px; /* Big font size */
+  font-weight: bold;
+  font-family: "Poppins", sans-serif; /* Beautiful font */
+  color: #333; /* Text color */
+}
+
+.card::before,
+.card::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px solid transparent;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.card::before {
+  top: -2px;
+  left: -2px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.card::after {
+  bottom: -2px;
+  right: -2px;
+  border-top: none;
+  border-left: none;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+  border-color: #f39c12; /* Change border color on hover */
+}
+
+.card:hover::before,
+.card:hover::after {
+  transform: scaleX(1.1) scaleY(1.1);
+  border-color: #f39c12; /* Change border color on hover */
+}
