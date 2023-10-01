@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Card from "../Card/Card";
-function Container({ children }) {
+import "./Container.css";
+
+function Container() {
   const [score, setScore] = useState(0);
   const [cardOrder, setCardOrder] = useState([
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
@@ -38,11 +40,15 @@ function Container({ children }) {
   }
 
   return (
-    <div className="ctn">
-      <p>Score: {score}</p>
-      {cardOrder.map((id) => (
-        <Card key={id} id={id} onClick={handleClick} />
-      ))}
+    <div className="flexScore">
+      <div className="score-tab">
+        <span>Score: {score}</span>
+      </div>
+      <div className="ctn">
+        {cardOrder.map((id) => (
+          <Card key={id} id={id} onClick={handleClick} />
+        ))}
+      </div>
     </div>
   );
 }

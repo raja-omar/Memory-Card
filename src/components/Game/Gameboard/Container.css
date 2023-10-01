@@ -1,3 +1,111 @@
+/* Container for the cards */
+.ctn {
+  display: flex;
+  flex-wrap: wrap; /* Allows cards to wrap onto the next row */
+  justify-content: center; /* Center the cards horizontally */
+  background-color: #f0f0f0; /* Background color for the container */
+  padding: 20px; /* Add padding for spacing */
+  border: 2px solid #3498db; /* Border for the container */
+  border-radius: 10px; /* Rounded corners for the container */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for the container */
+  max-width: 760px; /* Optional: Set a maximum width for the container */
+}
 
+/* Individual cards */
+.card {
+  width: 100px; /* Set card width to occupy 20% with spacing */
+  height: 100px;
+  margin: 10px; /* Spacing between cards */
+  background-color: #ffffff;
+  border: 2px solid #3498db;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 48px;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  color: #333;
+}
 
+.card::before,
+.card::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px solid transparent;
+  transition: transform 0.3s, border-color 0.3s;
+}
 
+.card::before {
+  top: -2px;
+  left: -2px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.card::after {
+  bottom: -2px;
+  right: -2px;
+  border-top: none;
+  border-left: none;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+  border-color: #f39c12;
+}
+
+.card:hover::before,
+.card:hover::after {
+  transform: scaleX(1.1) scaleY(1.1);
+  border-color: #f39c12;
+}
+
+/* Score Tab Container */
+.flexScore {
+  display: flex;
+  justify-content: space-between; /* Spacing between score tabs */
+  align-items: center;
+  flex-wrap: wrap; /* Allow scores to wrap to the next line if needed */
+}
+
+/* Individual Score Tabs */
+.score-tab {
+  flex-basis: calc(50% - 10px); /* Set score tabs to occupy 50% with spacing */
+  background-color: #3498db;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  cursor: default;
+  user-select: none;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+/* High Score Tab */
+.score-tab.high-score {
+  background-color: #e74c3c; /* Red background for high score */
+}
+
+/* Score Styles */
+.score {
+  font-size: 36px;
+  margin-top: 10px;
+}
+
+/* Hover and Focus Styles for Score Tabs */
+.score-tab:hover,
+.score-tab:focus {
+  background-color: #2980b9;
+  transform: scale(1.05);
+}
